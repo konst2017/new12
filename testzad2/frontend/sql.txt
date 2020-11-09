@@ -1,0 +1,29 @@
+сложение транзакций-
+mysql> create table newdata select * from data;
+Query OK, 4882 rows affected (1.42 sec)
+Records: 4882  Duplicates: 0  Warnings: 0
+
+mysql> delete from newdata;
+Query OK, 4882 rows affected (0.25 sec)
+
+mysql> insert into newdata select id,cardnumber,date,sum(volume),service,addres
+sid from data group by card_number;
+Query OK, 107 rows affected (0.20 sec)
+Records: 107  Duplicates: 0  Warnings: 0
+
+mysql> delete from data;
+Query OK, 4882 rows affected (0.29 sec)
+
+mysql> insert into data select * from newdata;
+Query OK, 107 rows affected (0.10 sec)
+Records: 107  Duplicates: 0  Warnings: 0
+
+
+сайт- https://stackoverflow.com/questions/16809393/select-into-in-mysql
+
+
+
+сайт по виджетам https://hotexamples.com/ru/examples/-/kartik%255Cselect2%255CSelect2/-/php-kartik%255cselect2%255cselect2-class-examples.html
+
+
+https://p0vidl0.info/yii2-vypadayushhij-spisok-dropdownlist.html
